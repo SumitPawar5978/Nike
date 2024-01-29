@@ -1,0 +1,348 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+
+    <title>Hello, world!</title>
+  </head>
+  <style>
+    
+a {
+  text-decoration: none;
+  cursor: pointer;
+  outline: 0;
+}
+
+.section-padding {
+  padding-top: 80px;
+}
+
+.gallery-section {
+  position: relative;
+  z-index: 1;
+}
+
+.title {
+  font-size: 46px;
+  font-weight: 700;
+  font-family: "Playfair Display", serif;
+  color: #f44336;
+} 
+
+.filter {
+  text-align: center;
+  max-width: 1050px;
+  margin: auto;
+}
+
+.btn {
+  padding: 10px 20px;
+  margin: 5px 4px 4px 0;
+  display: inline-block;
+  color: #003;
+  background: #eee;
+  border: 1px solid #f44336;
+  transition: all 0.4s;
+  border-radius: 10px;
+  font-size: 16px;
+  font-weight: 500;
+}
+.btn:hover,.btn-active {
+  background: #f44336;
+  color: #fff;
+  -webkit-transform: translateY(3px);
+  -ms-transform: translateY(3px);
+  transform: translateY(3px);
+}
+.gallery {
+  display: flex;
+  justify-content: center;
+  width: fit-content;
+  max-width: 1320px;
+  flex-wrap: wrap;
+  margin: 25px auto;
+  /* gap: 14px; */
+}
+.gallery a {
+  display: flex;
+}
+.gallery .all{
+    overflow: hidden !important;
+}
+.gallery img {
+  width: 400px;
+  height: 400px;
+  object-fit: cover;
+  transition: 0.3s ease-in-out;
+  /* border-radius: 12px; */
+  /* overflow: hidden; */
+  margin: 10px 10px;
+}
+
+.gallery img:hover {
+  transform: scale(1.1);
+}
+
+.sets .hide,
+.sets .pophide {
+  width: 0%;
+  opacity: 0;
+}
+
+.closeBtn {
+  position: absolute;
+  font-size: 22px;
+  font-weight: 500;
+  right: 25px;
+  top: 25px;
+  color: white;
+  transition: 0.5s linear;
+  padding: 8px 40px;
+  border-radius: 25px;
+  background: red;
+  outline-offset: -6px;
+  outline: 2px solid #fff;
+}
+.closeBtn:hover {
+  cursor: pointer;
+  background: white;
+  color: black;
+  outline: 2px solid #000;
+}
+
+.openDiv {
+  width: 100%;
+  height: 100vh;
+  background: #000000e7;
+  position: fixed;
+  top: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  left: 0;
+  z-index: 9999;
+}
+.imgPreview {
+  width: 70%;
+  object-fit: scale-down;
+  max-height: 40vw;
+  height: auto;
+}
+.prevButton,
+.nextButton {
+  transition: 1s linear;
+  padding: 10px 35px;
+  font-size: 18px;
+  border: none;
+  color: white;
+  background: #0005;
+  border-radius: 10px;
+  border: 1px solid white;
+  margin: 10px;
+}
+.prevButton:hover,
+.nextButton:hover {
+  background: #fff;
+  color: black;
+}
+
+/* resposive CSS Code */
+
+@media (max-width: 1199px) {
+  .section-padding {
+    padding-top: 70px;
+  }
+}
+@media (max-width: 991px) {
+  .section-padding {
+    padding-top: 50px;
+  }
+}
+@media (max-width: 767px) {
+  .title {
+    font-size: 36px;
+  }
+  .gallery img {
+    margin: 8px 8px;
+    width: 175px;
+  }
+  .closeBtn {
+    padding: 6px 25px;
+  }
+  .prevButton,
+  .nextButton {
+    font-size: 18px;
+    padding: 8px 25px;
+  }
+}
+
+@media (max-width: 540px) {
+  .section-padding {
+    padding-top: 30px;
+  }
+  
+  .gallery img {
+    margin: 8px 6px;
+    width: 155px;
+  }
+
+  .closeBtn {
+    font-size: 18px;
+    border-radius: 15px;
+  }
+  .prevButton,
+  .nextButton {
+    font-size: 18px;
+    padding: 6px 20px;
+    border-radius: 10px;
+    margin: 5px;
+  }
+
+  .imgPreview {
+    width: 90%;
+    max-height: 50vh;
+    height: auto;
+  }
+  
+}
+  </style>
+  <body>
+    <div class="section-padding gallery-section" id="gallery">
+        <div class="">
+          <!-- Section Title Start -->
+          <div class="text-center">
+            <h2 class="title">Our Gallery</h2>
+            <p>Some Random Photos Lorem ipsum, dolor sit.</p>
+          </div>
+          <!-- Section Title End -->
+
+          <div id="btncontainer" class="filter">
+            <a class="btn btn-active" href="#all">ALL</a>
+            <a class="btn" href="#Hollywood">Hollywood</a>
+            <a class="btn" href="#tv">TV Shows</a>
+          </div>
+
+          <!-- Gallery Section Start -->
+
+          <div class="gallery sets">
+       
+            <a class="all"><img src="./Assets/img/gallery-1.png" class="overflow-hidden "/></a>
+          
+            <a class="all"><img src="./Assets/img/gallery-2.png"/></a>
+
+            <a class="all Hollywood"><img src="./Assets/img/gallery-3.png"/></a>
+            
+            <a class="all Hollywood"><img src="./Assets/img/gallery-4.png"/></a>
+            
+            <a class="all Hollywood"><img src="./Assets/img/gallery-5.png"/></a>
+            
+            <a class="all tv"><img src="./Assets/img/gallery-6.png"/></a>
+            
+            <a class="all tv"><img src="./Assets/img/gallery-7.png"/></a>
+
+            <a class="all tv"><img src="./Assets/img/gallery-8.png"/></a>
+            
+          </div>
+        </div>
+      </div>
+
+    <!-- Optional JavaScript; choose one of the two! -->
+
+    <!-- Option 1: Bootstrap Bundle with Popper -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+
+    <!-- Option 2: Separate Popper and Bootstrap JS -->
+    <!--
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js" integrity="sha384-IQsoLXl5PILFhosVNubq5LC7Qb9DXgDA9i+tQ8Zj3iwWAwPtgFTxbJ8NT4GN1R8p" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.min.js" integrity="sha384-cVKIPhGWiC2Al4u+LWgxfKTRIcfu0JTxR+EQDz/bgldoEyl4H0zUF0QKbrJ0EcQF" crossorigin="anonymous"></script>
+    -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+    <script>
+        $(".filter a").click(function (e) {
+        e.preventDefault();
+        var a = $(this).attr("href");
+        a = a.substr(1);
+        $(".sets a").each(function () {
+          if (!$(this).hasClass(a) && a != "") $(this).addClass("hide");
+          else $(this).removeClass("hide");
+        });
+
+    
+
+// Add active class to the current button (highlight it)
+    var btnContainer = document.getElementById("btncontainer");
+    var btns = btnContainer.getElementsByClassName("btn");
+    for (var i = 0; i < btns.length; i++) {
+        var current = document.getElementsByClassName("btn-active");
+        current[0].className = current[0].className.replace(" btn-active", "");
+        this.className += " btn-active";
+
+    }
+});
+
+
+let imgs = document.querySelectorAll("img");
+      let count;
+      imgs.forEach((img, index) => {
+        img.addEventListener("click", function (e) {
+          if (e.target == this) {
+            count = index;
+            let openDiv = document.createElement("div");
+            let imgPreview = document.createElement("img");
+            let butonsSection = document.createElement("div");
+            butonsSection.classList.add("butonsSection");
+            let closeBtn = document.createElement("button");
+            let nextBtn = document.createElement("button");
+            let prevButton = document.createElement("button");
+            prevButton.innerText = "Previous";
+            nextBtn.innerText = "Next";
+
+            nextBtn.classList.add("nextButton");
+            prevButton.classList.add("prevButton");
+            nextBtn.addEventListener("click", function () {
+              if (count >= imgs.length - 1) {
+                count = 0;
+              } else {
+                count++;
+              }
+
+              imgPreview.src = imgs[count].src;
+            });
+
+            prevButton.addEventListener("click", function () {
+              if (count === 0) {
+                count = imgs.length - 1;
+              } else {
+                count--;
+              }
+
+              imgPreview.src = imgs[count].src;
+            });
+
+            closeBtn.classList.add("closeBtn");
+            closeBtn.innerText = "Close";
+            closeBtn.addEventListener("click", function () {
+              openDiv.remove();
+            });
+
+            imgPreview.classList.add("imgPreview");
+            imgPreview.src = this.src;
+
+            butonsSection.append(prevButton, nextBtn);
+            openDiv.append(imgPreview, butonsSection, closeBtn);
+
+            openDiv.classList.add("openDiv");
+
+            document.querySelector("body").append(openDiv);
+          }
+        });
+      });
+    </script>
+  </body>
+</html>
